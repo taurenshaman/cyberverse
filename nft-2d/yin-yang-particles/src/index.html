@@ -1,0 +1,150 @@
+﻿<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="language" content="zh" />
+    <title>Cyberverse/NFT/Yin-Yang particles</title>
+    <link rel="stylesheet" href="./assets/metro/css/metro-all.min.css?v=4.5.0" />
+    <link rel="stylesheet" href="./assets/spectrum/css/spectrum.min.css" />
+    <style>
+        body {
+            color: #ffffff;
+            font-family: Monospace;
+            font-size: 13px;
+            text-align: center;
+            font-weight: bold;
+            background-color: #000000;
+            margin: 0px;
+            overflow: hidden;
+        }
+
+        .desktop {
+            display: flex;
+            flex-direction: column;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: 100%;
+        }
+
+        .hide-cursor{
+            cursor: none;
+        }
+
+        .clearlink a, button {
+            text-decoration: none;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div id="body" class="desktop">
+        <div id="container" class="h-100 hide-cursor">
+        </div>
+        
+        <div id="panelCharm" class="bg-light p-5" data-role="charms" data-position="bottom" style="height: 300px;">
+            <div class="row">
+                <div class="cell-6">
+                    <!-- <div class="row">
+                        <div class="cell-sm-4">
+                            <label class="fg-black">Change background: </label>
+                        </div>
+                        <div class="cell-sm-2">
+                            <input type='text' id="colorpicker" />
+                        </div>
+                        <div class="cell-sm-4">
+                            <input type="file" accept="image/*" onchange="onSelectImage(this);" data-role="file" data-caption="<span class='mif-folder-open'></span>">
+                        </div>
+                    </div> -->
+                </div>
+                <div class="cell-6">
+                    <a class="command-button secondary outline" href="https://github.com/mrdoob/three.js/blob/master/examples/webgl_custom_attributes_points.html">
+                        <span class="mif-github icon"></span>
+                        <span class="caption">Forked from<small>three.js example</small></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="./js/jquery/jquery-3.5.1.min.js"></script>
+    <script type="text/javascript" src="./assets/metro/js/metro.min.js?v=4.5.0"></script>
+    <script type="text/javascript" src="./js/3d/three.min.js"></script>
+    <script type="text/javascript" src="./js/3d/Detector.js"></script>
+    <script type="text/javascript" src="./assets/spectrum/js/spectrum.min.js"></script>
+    <script type="text/javascript" src="./js/full-screen.js"></script>
+    <script type="text/javascript" src="./js/common.js?v=202110"></script>
+    <script type="text/javascript" src="./js/desktop.js?v=202109"></script>
+    <script type="x-shader/x-vertex" id="vertexshader">
+        uniform float amplitude;
+        attribute float size;
+        attribute vec3 customColor;
+        varying vec3 vColor;
+        void main() {
+        vColor = customColor;
+        vec4 mvPosition = modelViewMatrix * vec4( position, 1.0 );
+        gl_PointSize = size * ( 300.0 / -mvPosition.z );
+        gl_Position = projectionMatrix * mvPosition;
+        }
+    </script>
+    <script type="x-shader/x-fragment" id="fragmentshader">
+        uniform vec3 color;
+        uniform sampler2D texture;
+        varying vec3 vColor;
+        void main() {
+        gl_FragColor = vec4( color * vColor, 1.0 );
+        gl_FragColor = gl_FragColor * texture2D( texture, gl_PointCoord );
+        }
+    </script>
+    <script type="text/javascript" src="./js/yin-yang-particles.js?v=202109231415"></script>
+    <script type="text/javascript">
+    
+
+        $(document).ready(function () {
+            const body = document.querySelector('body');
+    body.onkeyup = function (event) {
+    var e = event || window.event;
+    var k = e.keyCode || e.which || event.charCode;
+    switch (k) {
+        case 73: // i
+        case 187: // +
+            case 107: // pad:+
+            case 38: // arrow-up
+            case 39: // arrow-right
+                increaseAngle();
+                break;
+            case 68: // d
+            case 189: // -
+            case 109: // pad:-
+            case 40: // arrow-down
+            case 37: // arrow-left
+                decreaseAngle();
+                break;
+            case 13: // enter
+            case 108: // pad:enter
+                exportPng();
+                break;
+    }
+    return false;
+};
+
+            //init(); // simple; settings is default: clockwise
+            //init({ clockwise: false, speed: 0.05 }); // anticlockwise; speed = default x5
+            //init({ static: true }); // static
+            //init({ static: true, angle: 320 }); // static
+            //init({ static: true, angle: 45 }); // static
+            //init({ static: true, angle: 90 }); // static
+            const deg = getQueryParmOfInt(["number", "degree", "num", "deg", "n", "d"]);
+            init({ static: true, angle: deg });
+
+            animate();
+        });
+    </script>
+
+</body>
+</html>
