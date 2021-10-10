@@ -138,7 +138,7 @@ function init(options) {
         uniforms: {
             amplitude: { value: 1.0 },
             color: { value: new THREE.Color(0xffffff) },
-            texture: { value: new THREE.TextureLoader().load("../assets/textures/sprites/spark1.png") }
+            texture: { value: new THREE.TextureLoader().load("./assets/textures/sprites/spark1.png") }
         },
         vertexShader: document.getElementById('vertexshader').textContent,
         fragmentShader: document.getElementById('fragmentshader').textContent,
