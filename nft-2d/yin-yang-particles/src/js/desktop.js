@@ -45,27 +45,9 @@ $(document).keypress(function (event) {
             Metro.charms.toggle("#panelCharm");
             break;
         case 51: // 3/#
+        case 102: // F
             launchFullScreen(document.documentElement);
             break;
-        ////
-        // case 73: // i
-        // case 187: // +
-        //     case 107: // pad:+
-        //     case 38: // arrow-up
-        //     case 39: // arrow-right
-        //         increaseAngle();
-        //         break;
-        //     case 68: // d
-        //     case 189: // -
-        //     case 109: // pad:-
-        //     case 40: // arrow-down
-        //     case 37: // arrow-left
-        //         decreaseAngle();
-        //         break;
-        //     case 13: // enter
-        //     case 108: // pad:enter
-        //         exportPng();
-        //         break;
     }
     return false;
 });

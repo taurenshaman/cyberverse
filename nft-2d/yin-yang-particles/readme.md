@@ -5,7 +5,7 @@ Particles of Yin-Yang
 
 
 ### Usage
-* Request full screen mode: `#`, ~`F`~
+* Request full screen mode: `#`, `F`
 * Call a **Info Panel**: `!`, `I`
 * Node. View a specific angle using the parameter: `num` or `n`.
 
