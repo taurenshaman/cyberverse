@@ -15,7 +15,8 @@ Just upload files in `src` directly and browse.
 
 ### Avalible nodes
 See `nodes-list.txt`.  
-You can view a specific angle using the parameter: `num` or `n`.
+You can view a specific angle using the parameter: `num` or `n`.  
+If you deployed a copy, welcome submit a issue or post on discussion.
 
 ### Declaration
 The code is a hard fork and update of [example: three.js/webgl_custom_attributes_points](https://github.com/mrdoob/three.js/blob/master/examples/webgl_custom_attributes_points.html).
