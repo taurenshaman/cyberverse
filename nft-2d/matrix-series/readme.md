@@ -15,7 +15,8 @@ Just upload files in `src` directly and browse.
 
 ### Avalible nodes
 See `nodes-list.txt`.  
-You can view a specific angle using the parameter: `num` or `n`.
+You can view a specific angle using the parameter: `num` or `n`.  
+If you deployed a copy, welcome submit a issue or post on discussion.
 
 ### Minted
 1. 道可道非常道
