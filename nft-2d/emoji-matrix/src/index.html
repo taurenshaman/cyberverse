@@ -1,0 +1,111 @@
+﻿<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="language" content="zh" />
+    <title>Cyberverse/NFT/Matrix</title>
+    <link rel="stylesheet" href="./assets/metro/css/metro-all.min.css?v=4.5.0" />
+    <style>
+        body {
+            color: #ffffff;
+            font-family: Monospace;
+            font-size: 13px;
+            text-align: center;
+            font-weight: bold;
+            background-color: #000000;
+            margin: 0px;
+            overflow: hidden;
+        }
+
+        .desktop {
+            display: flex;
+            flex-direction: column;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: 100%;
+        }
+
+        .hide-cursor{
+            cursor: none;
+        }
+
+        .clearlink a, button {
+            text-decoration: none;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div id="body" class="desktop">
+        <div id="container" class="h-100 hide-cursor">
+            <canvas id="canvas" class="w-100 h-100 hide-cursor"></canvas>
+        </div>
+        
+        <div id="panelCharm" class="bg-light p-5" data-role="charms" data-position="bottom" style="height: 300px;">
+            <div class="row">
+                <div class="cell-6">
+                    <!-- <div class="row">
+                        <div class="cell-sm-4">
+                            <label class="fg-black">Change background: </label>
+                        </div>
+                        <div class="cell-sm-2">
+                            <input type='text' id="colorpicker" />
+                        </div>
+                        <div class="cell-sm-4">
+                            <input type="file" accept="image/*" onchange="onSelectImage(this);" data-role="file" data-caption="<span class='mif-folder-open'></span>">
+                        </div>
+                    </div> -->
+                </div>
+                <div class="cell-6">
+                    <a class="command-button secondary outline" href="http://www.arungudelli.com/html5/matrix-effect-using-html5-and-javascript/">
+                        <span class="mif-copyright icon"></span>
+                        <span class="caption">Arunkumar Gudelli</span>
+                    </a>
+                    <a class="command-button secondary outline" href="https://codepen.io/collection/DOpWmG/">
+                        <span class="mif-codepen icon"></span>
+                        <span class="caption">More</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="./js/jquery/jquery-3.5.1.min.js"></script>
+    <script type="text/javascript" src="./assets/metro/js/metro.min.js?v=4.5.0"></script>
+    <script type="text/javascript" src="./js/full-screen.js"></script>
+    <script type="text/javascript" src="./js/common.js?v=202110"></script>
+    <script type="text/javascript" src="./js/desktop.js?v=202110"></script>
+    <script type="text/javascript" src="./js/data.js?v=202110131530"></script>
+    <script type="text/javascript" src="./js/emoji-matrix.js?v=202110131537"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            const num = getQueryParmOfInt(["number", "num", "n"]);
+            const secretCode = "";//loadSecretCode(num, secretCodes);
+
+            const body = document.querySelector('body');
+                body.onkeyup = function (event) {
+                var e = event || window.event;
+                var k = e.keyCode || e.which || event.charCode;
+                switch (k) {
+                        case 13: // enter
+                        case 108: // pad:enter
+                            exportPng(num);
+                            break;
+                }
+                return false;
+            };
+
+            var canvas = document.getElementById("canvas");
+            initialize(canvas, 99, 18, num, secretCode);
+            runMatrix();
+        });
+    </script>
+
+</body>
+</html>
