@@ -20,10 +20,10 @@ Many NFTs are designed with a fixed quantity and fixed price, which can ensure s
 
 The unit of the money is DAI, and the basic price is 2.
 * 1st time , mint price: 2^0 = 1 DAI
-* 1st time , mint price: 2^1 = 2 DAI
-* 1st time , mint price: 2^2 = 4 DAI
-* 1st time , mint price: 2^3 = 8 DAI
-* 1st time , mint price: 2^4 = 16 DAI
+* 2nd time , mint price: 2^1 = 2 DAI
+* 3rd time , mint price: 2^2 = 4 DAI
+* 4th time , mint price: 2^3 = 8 DAI
+* 5th time , mint price: 2^4 = 16 DAI
 
 ---
 
