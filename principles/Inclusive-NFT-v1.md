@@ -14,7 +14,7 @@ Many NFTs are designed with a fixed quantity and fixed price, which can ensure s
 
 1. Assume that the unit of the money/token is `UNIT`, e.g. `DAI`/`USDC`/`DOGE`/`MATIC`/`CKB`/...
 2. Assume that the basic price is `N`.
-3. The mint price is exponential growth.
+3. The mint price is exponential growth, e.g. `N^x UNIT, x∈[0, +∞)`.
 
 ### Examples
 
@@ -44,7 +44,7 @@ The unit of the money is DAI, and the basic price is 2.
 ### 设计
 1. 假定货币单位是`UNIT`，具体可以是`DAI`/`USDC`/`DOGE`/`MATIC`/`CKB`/...
 2. 假定基础价格是`N`。
-3. 铸造价格指数增长。
+3. 铸造价格指数增长，比如`N^x UNIT, x∈[0, +∞)`。
 
 ### 示例
 
